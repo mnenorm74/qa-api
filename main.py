@@ -2,5 +2,7 @@ import requests
 
 base_url = "https://playground.learnqa.ru/api"
 
-response = requests.get(base_url + "/hello")
+payload = {"name": "User"}
+response = requests.get(base_url + "/hello", params=payload)
 print(response.text)
+print(response.status_code)
