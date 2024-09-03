@@ -2,9 +2,7 @@ import requests
 
 base_url = "https://playground.learnqa.ru/api"
 
-response = requests.post(f"{base_url}/get_301", allow_redirects=True)
-first_response = response.history[0]
-second_response = response
-print(first_response.url)
-print(response.url)
+headers = {"some header": "123"}
+response = requests.get(f"{base_url}/show_all_headers")
+print(response.text)
 
