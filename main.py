@@ -2,6 +2,9 @@ import requests
 
 base_url = "https://playground.learnqa.ru/api"
 
-response = requests.post(f"{base_url}/get_301", allow_redirects=False)
-print(response.status_code)
+response = requests.post(f"{base_url}/get_301", allow_redirects=True)
+first_response = response.history[0]
+second_response = response
+print(first_response.url)
+print(response.url)
 
