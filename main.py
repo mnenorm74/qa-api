@@ -2,8 +2,9 @@ import requests
 
 base_url = "https://playground.learnqa.ru/api"
 
-headers = {"some header": "123"}
-response = requests.get(f"{base_url}/show_all_headers")
+payload = {"login": "secret_login", "password": "secret_pass"}
+response = requests.post(f"{base_url}/get_auth_cookie", data=payload)
 print(response.text)
-print(response.headers)
+print(response.status_code)
+print(dict(response.cookies))
 
